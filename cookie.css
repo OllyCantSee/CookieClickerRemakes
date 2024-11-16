@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Livvic", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+@keyframes bounce {
+    0% {
+        scale: 1;
+    }
+    15% {
+        scale: 1.03;
+    }
+    30% {
+        scale: 0.97;
+    }
+    45% {
+        scale: 1.02;
+    }
+    60% {
+        scale: 0.98;
+    }
+    75% {
+        scale: 1.01;
+    }
+}
+
+@keyframes bounce_small {
+    0% {
+        scale: 0.94;
+    }
+    15% {
+        scale: 1.01;
+    }
+    30% {
+        scale: 0.95;
+    }
+    45% {
+        scale: 1;
+    }
+    60% {
+        scale: 0.96;
+    }
+    75% {
+        scale: 0.98;
+    }
+    90% {
+        scale: 0.98;
+    }
+    100% {
+        scale: 0.98;
+    }
+}
+
+
+@keyframes fade_up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes rotate_clock {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    0% {
+        transform: rotate(0);
+    }
+}
+@keyframes rotate_anticlock {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+    0% {
+        transform: rotate(0);
+    }
+    
+}
+
+
+@keyframes fall_down {
+    0% {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(500px);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(-100deg) translateX(140px);
+    }
+    100% {
+        transform: rotate(360deg) translateX(140px);
+    }
+}
+
+
+.page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.page_right {
+    width: 432px;
+    background: url(https://cdn.dashnet.org/cookieclicker/img/bgBlue.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.right_header {
+    color: #fff;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+
+.buildings_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -5px;
+}
+
+.upgrade_frame {
+    position: absolute;
+}
+
+.grey_overlay {
+    position: absolute;
+    background: #00000075;
+    z-index: 999;
+}
+
+.cookie_cursors_section {
+    position: absolute;
+    top: 110px;
+    left: 110px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.cookie_cursor {
+    position: absolute;
+    z-index: 99999999;
+    animation: orbit 60s linear infinite;
+    width: 35px;
+}
+
+.add_cursor {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    background-image: url('Buildings_tile.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 64px;
+    max-height: 100px;
+}
+.cursor_image {
+    z-index: 9999;
+    position: absolute;
+    top: 4px;
+    left: 18px;
+    filter: drop-shadow(1px 3px 3px #000);
+}
+
+.add_cursor_quantity {
+    position: absolute;
+    z-index: 9999;
+    top: 12px;
+    right: 20px;
+    color: #4f4d42;
+}
+
+.add_cursor_title {
+    position: absolute;
+    z-index: 9999;
+    top: -2px;
+    left: 70px;
+    color: #fff;
+    filter: drop-shadow(-1px 2px 2px #000);
+}
+
+.add_cursor_price {
+    font-size: 20px;
+    position: absolute;
+    left: 70px;
+    top: 32px;
+    z-index: 9999;
+    color: #fff;
+    filter: drop-shadow(-1px 2px 2px #000);
+}
+
+.gray_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #00000061;
+}
+
+.upgrade_frame {
+
+}
+
+.page_middle {
+    background: url(https://cdn.dashnet.org/cookieclicker/img/bgBlue.jpg);
+    width: 1350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.page_left {
+    width: 780px;
+    background: url(https://cdn.dashnet.org/cookieclicker/img/bgBlue.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cookie_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    height: 100%;
+    gap: 10rem;
+    z-index: 4;
+}
+
+.main_cookie{
+    width: 250px;
+    filter: drop-shadow(0px 10px 10px #000);
+    display: inline-block;
+    pointer-events: painted;
+    border-radius: 50%;
+}
+
+.main_cookie_section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_cookie_glow {
+    position: absolute;
+    width: 500px;
+    opacity: 0.4;
+}
+
+.store_section {
+    width: 100%;
+}
+
+.upgrades_flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: start;
+    gap: 5px;
+    margin-bottom: 3px;
+    margin-top: -3px;
+    margin-left: 3px;
+}
+
+.main_cookie:hover {
+    scale: 1.02;
+    transition: all 0.8s ease;
+    animation: bounce 0.8s ease-in-out;
+    cursor: pointer;
+    animation-fill-mode: forwards;
+}
+.main_cookie:active{
+    animation: bounce_small 0.8s ease-in-out;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+
+.store_name_section {
+    height: min-content;
+}
+
+.cookie_addition {
+    position: absolute;
+    color: #fff;
+    z-index: 9999;
+    pointer-events: none;
+    font-size: 20px;
+    font-weight: 800;
+}
+.current_cookie_count {
+    color: #fff;
+}
+
+.current_cookie_psecond {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.info_section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.store_name_section {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background: #00000093;
+}
+
+.store_name {
+    color: #fff;
+    text-align: center;
+}
+.store_name:hover {
+    filter: drop-shadow(0px 0px 4px #ffffff);
+    cursor: pointer;
+}
+
+.cookie_info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.3rem 0rem;
+    background: #00000093;
+}
+
+.fade_up {
+    animation: fade_up 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.spin_clockwise {
+    animation: rotate_clock 42s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.spin_anticlockwise {
+    animation: rotate_anticlock 42s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.fall_down {
+    position: absolute;
+    top: -50px;
+    animation: fall_down 1.6s;
+    animation-timing-function:cubic-bezier(1, 0.7, 1, 1.2);
+    pointer-events: none;
+}
+.vingette {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.darken_background {
+    background: #00000038;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.side_nav {
+    right: 0;
+    position: absolute;
+    z-index: 999;
+}
+
+.side_nav2 {
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    bottom: 0;
+}
+
+
+.cookie_upgrade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: #0d1b26;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.upgrades_section {
+    position: relative;
+}
+
+.cursor_upgrade_one:hover {
+    background: #162b3a;
+}
+
+.top_store_panel {
+    z-index: 999;
+    filter: drop-shadow(2px 2px 3px #000);
+}
+.bottom_store_panel {
+    z-index: 999;
+}

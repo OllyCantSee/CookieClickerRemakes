@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cookie.css">
+    <title>Cookie Clicker</title>
+</head>
+<body>
+
+    <div class="page">
+
+        <div class="page_left">
+        <img src="panelVertical.png" class="side_nav">
+        <img src="panelVertical.png" class="side_nav2">
+        <img src="https://cdn.dashnet.org/cookieclicker/img/shadedBordersSoft.png" alt="" class="vingette">
+        <div class="darken_background"></div>
+        <div class="cookie_section">
+            <div class="info_section">
+                <div class="store_name_section">
+                    <h1 class="store_name">Aunti Susies Bakery</h1>
+                </div>
+                <div class="cookie_info">
+                    <h1 class="current_cookie_count" id="current_cookie_count">0 cookies</h1>
+                    <h1 class="current_cookie_psecond" id="current_cookies_psecond">per second: 0</h1>
+                </div>
+            </div>  
+            <div class="main_cookie_section" id="main_cookie_section">
+                <div class="cookie_cursors_section" id="cookie_cursors_section">
+                    <img src="RotatedCookieCursor.png" alt="" class="cookie_cursor">
+                    <img src="RotatedCookieCursor.png" alt="" class="cookie_cursor">
+                    <img src="RotatedCookieCursor.png" alt="" class="cookie_cursor">
+                    <img src="RotatedCookieCursor.png" alt="" class="cookie_cursor">
+                </div>
+
+                <img src="https://cdn.dashnet.org/cookieclicker/img/shine.png" class="main_cookie_glow spin_clockwise" draggable="false"  alt="">
+                <img src="https://cdn.dashnet.org/cookieclicker/img/shine.png" class="main_cookie_glow spin_anticlockwise"  draggable="false" alt="">
+                <img src="Cookie.png" alt="" class="main_cookie" id="cookie" draggable="false">
+            </div>
+
+        </div>
+
+        </div>
+
+        <div class="page_middle">
+
+            <img src="panelVertical.png" class="side_nav">
+            <img src="panelVertical.png" class="side_nav2">
+            
+
+        </div>
+        
+        <div class="page_right" id="page_right">
+            <div class="store_section">
+                <h1 class="right_header">Store</h1>
+
+                <div class="upgrades_section">
+                    <img src="panelHorizontal.png" class="top_store_panel" alt="">
+
+                    <div class="upgrades_flex">
+                        <button class="cookie_upgrade" id="upgrade_one" ><img src="CursorBlue.png" alt=""><img src="UpgradeFrameDark.png" alt="" class="upgrade_frame" id="upgrade_frame_1"><div class=""></div></button>
+                        <button class="cookie_upgrade" id="upgrade_two" ><img src="CursorPink.png" alt=""><img src="UpgradeFrameDark.png" alt="" class="upgrade_frame" id="upgrade_frame_2"><div class=""></div></button>
+                        <button class="cookie_upgrade" id="upgrade_three" ><img src="CursorFilledBlue.png" alt=""><img src="UpgradeFrameDark.png" alt="" class="upgrade_frame" id="upgrade_frame_3"><div class=""></div></button>
+                    </div>
+
+                    <img src="panelHorizontal.png" class="bottom_store_panel" alt="">
+                </div>
+            </div>
+
+            <div class="buildings_section">
+                <div class="add_cursor" id="add_cursor">
+                    <img src="Cursor.png" alt="" class="cursor_image">
+                    <h1 class="add_cursor_title" id="add_cursor_title">Cursor</h1>
+                    <h1 class="add_cursor_price" id="add_cursor_price">0</h1>
+                    <h1 class="add_cursor_quantity" id="add_cursor_quantity">0</h1>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="cookie.js"></script>
+</body>
+</html>
