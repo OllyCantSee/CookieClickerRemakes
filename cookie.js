@@ -18,9 +18,24 @@ function start_game() {
     const add_cursor_quantity = document.getElementById("add_cursor_quantity"); // The element showing the number of cursors
     const current_cookies_psecond = document.getElementById("current_cookies_psecond");  // The element showing the current cookies per second
     const mainCookieSection = document.getElementById('cookie_cursors_section'); // The section that holds the cookie
-    
+
+    let num = cursor_exists()
+
+    if (num === true) {
+        number_of_cursors = parseInt(getCookie("cursor_count"));
+        current_purchase_limit = Math.round(current_purchase_limit * number_of_cursors * 0.405, 1);
+        add_cursor_price.innerText = current_purchase_limit;
+        add_cursor_quantity.innerHTML = number_of_cursors; 
+    } else {
+        number_of_cursors = 0;
+    }
+
     add_cursor_price.innerText = current_purchase_limit;
-    add_cursor_quantity.innerHTML = number_of_cursors;
+    add_cursor_quantity.innerHTML = number_of_cursors; 
+
+
+
+    
 
     // Current Cursor Location Function:
 
@@ -31,8 +46,6 @@ function start_game() {
         return { x: mouseX, y: mouseY };
     }
 
-
-
     // Cursor Functions:
 
     cursor_upgrade.addEventListener("click", function() {
@@ -41,18 +54,21 @@ function start_game() {
                 current_purchase_limit = Math.round(current_purchase_limit + current_purchase_limit * 0.1, 1);
                 number_of_cursors += 1;
 
+                document.cookie = "cursor_count=" + number_of_cursors;
                 let cookies_psecond_now = get_cookies_psecond();
                 cookies_psecond_now = cookies_psecond_now.toFixed(1);
 
                 current_cookies_psecond.innerHTML = "per second: " + cookies_psecond_now;
                 update_visual_cookies();
                 add_cursor_price.innerText = current_purchase_limit;
-                add_cursor_quantity.innerHTML = number_of_cursors;
+                add_cursor_quantity.innerHTML = number_of_cursors; 
+
 
                 let add_cookie_cursor = document.createElement("img");
                 add_cookie_cursor.src = "RotatedCookieCursor.png";
                 add_cookie_cursor.className = "cookie_cursor";
                 mainCookieSection.appendChild(add_cookie_cursor);
+
         }
         if (!interval_started) {
             setInterval(add_cookies_psecond, 1000)
@@ -152,10 +168,19 @@ function start_game() {
         let cookies = document.cookie.split('; ');
         cookies.forEach(function(c){
         if(c.match(/current_cookies=.+/)) {
-            console.log(true);
             check_cookies();
         }
         });
+    }
+
+    function cursor_exists() {
+        let cookies = document.cookie.split('; ');
+        for (let c of cookies) {
+            if (c.match(/cursor_count=.+/)) {
+                return true;             
+            }
+        }
+        return false;      
     }
 
     function check_cookies() {
@@ -226,8 +251,21 @@ function start_game() {
     }
 
     function get_cookies_psecond() {
-        cursors_total = cursor_cookies_psecond * number_of_cursors;
+        let currentCursors = getCookie("cursor_count");
+        let cursors_total;
+        console.log(currentCursors) 
+
+        if (currentCursors > 0) {
+            console.log("Hello")
+            cursors_total = cursor_cookies_psecond * currentCursors;
+        } else {
+            cursors_total = cursor_cookies_psecond * number_of_cursors;
+        }
+
+ 
         cookies_psecond = cursors_total;
+
+        console.log(cookies_psecond)
         return cookies_psecond;
     }
 
