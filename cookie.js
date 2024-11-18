@@ -25,7 +25,9 @@ function start_game() {
         number_of_cursors = parseInt(getCookie("cursor_count"));
         current_purchase_limit = Math.round(current_purchase_limit * number_of_cursors * 0.405, 1);
         add_cursor_price.innerText = current_purchase_limit;
-        add_cursor_quantity.innerHTML = number_of_cursors; 
+        add_cursor_quantity.innerHTML = number_of_cursors;
+        current_cookies = getCookie("current_cookies")
+        document.cookie = "current_cookies=" + current_cookies;
     } else {
         number_of_cursors = 0;
     }
@@ -63,11 +65,12 @@ function start_game() {
                 add_cursor_price.innerText = current_purchase_limit;
                 add_cursor_quantity.innerHTML = number_of_cursors; 
 
-
                 let add_cookie_cursor = document.createElement("img");
                 add_cookie_cursor.src = "RotatedCookieCursor.png";
                 add_cookie_cursor.className = "cookie_cursor";
                 mainCookieSection.appendChild(add_cookie_cursor);
+                current_cookies = getCookie("current_cookies")
+                document.cookie = "current_cookies=" + current_cookies;
 
         }
         if (!interval_started) {
